@@ -1,0 +1,26 @@
+#!/usr/bin/osascript
+on run argv
+	set theFilename to item 1 of argv
+	set theLines to every paragraph of (do shell script ("cat " & theFilename))
+	set theName to item 1 of theLines
+	set theURL  to item 2 of theLines
+	try
+		set Applescript's text item delimiters to "\n"
+		set theNote to items 3 thru end of theLines as string
+	on error
+		set theNote to ""
+	end try
+
+	set theMessage to "[url=" & theURL & "]Email[/url]"
+
+	tell application "Things"
+		-- Creating a todo without the quick entry:
+		-- set theToDo to make new to do at beginning of list "Inbox"
+		-- set name of theToDo to theName
+		-- set notes of theToDo to theMessage & "\n" & theNote
+		-- set tag names of newToDo to "Work"
+
+		-- properties can include, for example, 'tag names:"Work"', but I couldn't make that work...
+		show quick entry panel with properties {name:theName, notes:theMessage & "\n" & theNote}
+	end tell
+end run

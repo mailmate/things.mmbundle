@@ -1,0 +1,29 @@
+#!/usr/bin/ruby -w
+# encoding: UTF-8
+
+require 'cgi'
+
+# Create temporary file (don't use this execution style if user input is involved)
+tmpfilename = `mktemp -t add_input`.chop
+tmpfile = File.open(tmpfilename, "w+")
+
+# First line is used as the name of the task
+tmpfile.puts(ENV['MM_SUBJECT'])
+tmpfile.puts("message://%3c" + CGI::escape(ENV['MM_MESSAGE_ID']) + "%3e")
+
+# The rest is the note
+canonical = $stdin.read
+if !canonical.empty?
+  tmpfile.puts("From: " + ENV['MM_FROM'])
+  tmpfile.puts("Subject: " + ENV['MM_SUBJECT'])
+  tmpfile.puts("")
+  tmpfile.write(canonical)
+end
+
+tmpfile.close
+
+# Use AppleScript to communicate with the application
+system(ENV['MM_BUNDLE_SUPPORT'] + "/bin/create_task", tmpfilename)
+
+# Cleanup
+File.unlink(tmpfilename)

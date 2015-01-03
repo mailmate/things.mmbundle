@@ -1,0 +1,8 @@
+{
+	name          = 'Add With Summary...';
+	input         = 'canonical';
+	environment   = 'MM_FROM=${from}\nMM_SUBJECT=${subject.prefix:+${subject.prefix} }${subject.blob:+[${subject.blob}] }${subject.body}\nMM_MESSAGE_ID=${message-id.split}\n';
+	command       = '#!/bin/bash\n"${MM_BUNDLE_SUPPORT}/bin/add"';
+	keyEquivalent = "^A";
+	uuid          = 'E7A70711-4924-4488-B37D-C8A784F05932';
+}

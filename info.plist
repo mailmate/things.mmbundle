@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>gbefgra.tehfg@tznvy.pbz</string>
+	<key>contactName</key>
+	<string>Torsten 'Teggy' Grust</string>
+	<key>description</key>
+	<string>Integration with task manager Things.</string>
+	<key>name</key>
+	<string>Things</string>
+	<key>uuid</key>
+	<string>4927E9D0-5392-11E3-8F96-0800200C9A66</string>
+</dict>
+</plist>
