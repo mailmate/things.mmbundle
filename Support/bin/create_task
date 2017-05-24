@@ -21,6 +21,6 @@ on run argv
 		-- set tag names of newToDo to "Work"
 
 		-- properties can include, for example, 'tag names:"Work"', but I couldn't make that work...
-		show quick entry panel with properties {name:theName, notes:theMessage & "\n\n–\n\n" & theNote}
+		show quick entry panel with properties {name:theName, notes:theMessage & "\n–\n\n" & theNote}
 	end tell
 end run
