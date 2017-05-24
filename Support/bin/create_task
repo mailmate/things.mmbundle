@@ -11,7 +11,7 @@ on run argv
 		set theNote to ""
 	end try
 
-	set theMessage to "[url=" & theURL & "]Email[/url]"
+	set theMessage to "Email: " & theURL
 
 	tell application id "com.culturedcode.ThingsMac"
 		-- Creating a todo without the quick entry:
@@ -21,6 +21,6 @@ on run argv
 		-- set tag names of newToDo to "Work"
 
 		-- properties can include, for example, 'tag names:"Work"', but I couldn't make that work...
-		show quick entry panel with properties {name:theName, notes:theMessage & "\n" & theNote}
+		show quick entry panel with properties {name:theName, notes:theMessage & "\n\n–\n\n" & theNote}
 	end tell
 end run
