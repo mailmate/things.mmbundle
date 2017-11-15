@@ -23,7 +23,7 @@ end
 tmpfile.close
 
 # Use AppleScript to communicate with the application
-system(ENV['MM_BUNDLE_SUPPORT'] + "/bin/create_task", tmpfilename)
+system(ENV['MM_BUNDLE_SUPPORT'] + "/bin/create_task", tmpfilename, ENV['MM_SHOW_GUI'])
 
 # Cleanup
 File.unlink(tmpfilename)

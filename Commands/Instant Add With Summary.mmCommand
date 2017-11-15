@@ -1,0 +1,8 @@
+{
+	name          = 'Instant Add With Summary...';
+	input         = 'canonical';
+	environment   = 'MM_SHOW_GUI=NO\nMM_FROM=${from}\nMM_SUBJECT=${subject.prefix:+${subject.prefix} }${subject.blob:+[${subject.blob}] }${subject.body}\nMM_MESSAGE_ID=${message-id.split}\n';
+	command       = '#!/bin/bash\n"${MM_BUNDLE_SUPPORT}/bin/add"';
+	keyEquivalent = "^A";
+	uuid          = 'CC3CD952-9ED2-4945-A882-B333E0786E7B';
+}
